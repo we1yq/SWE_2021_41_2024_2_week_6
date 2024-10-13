@@ -47,11 +47,13 @@ print("Output:", isHappy(int(num)))
 ---
 ## Week 5 Assignment
 > ```bash
-> docker exec <your container> cat /etc/os-release
+> docker exec <container_name> cat /etc/os-release
 > ```
-> * This command runs the ``cat /etc/os-release`` command inside the Docker container named ``ossp-container``. It reads and displays the contents of the ``/etc/os-release`` file.
+> * This command runs the ``cat /etc/os-release`` command inside the Docker container named ``<container_name>``. It reads and displays the contents of the ``/etc/os-release`` file.
 >> **Output**
 >> ```bash
+>> docker exec ossp-container cat /etc/os-release
+>> 
 >> PRETTY_NAME="Ubuntu 24.04.1 LTS"
 >> NAME="Ubuntu"
 >> VERSION_ID="24.04"
@@ -71,11 +73,13 @@ print("Output:", isHappy(int(num)))
 <br>
 
 > ```bash
-> docker exec ossp-container git --version
+> docker exec <container_name> git --version
 > ```
-> * This runs the ``git --version`` command inside the ``ossp-container`` Docker container to check the version of Git installed.
+> * This runs the ``git --version`` command inside the ``<container_name>`` Docker container to check the version of Git installed.
 >> **Output**
 >> ```bash
+>> docker exec ossp-container git --version
+>> 
 >> git version 2.43.0
 >> ```
 >> * The output shows that ``Git version 2.43.0`` is installed in the container.
@@ -83,11 +87,13 @@ print("Output:", isHappy(int(num)))
 <br>
 
 > ```bash
-> docker exec ossp-container python3 --version
+> docker exec <container_name> python3 --version
 > ```
-> *  This runs the ``python3 --version`` command inside the ``ossp-container`` Docker container to check the version of Python installed.
+> *  This runs the ``python3 --version`` command inside the ``<container_name>`` Docker container to check the version of Python installed.
 >> **Output**
 >> ```bash
+>> docker exec ossp-container python3 --version
+>> 
 >> Python 3.12.3
 >> ```
 >> * The output shows that ``Python 3.12.3`` is installed in the container.
@@ -95,11 +101,13 @@ print("Output:", isHappy(int(num)))
 <br>
 
 > ```bash
-> docker inspect --format="{{ .HostConfig.Binds }}" ossp-container
+> docker inspect --format="{{ .HostConfig.Binds }}" <container_name>
 > ```
-> * This runs a Docker inspection command on the ``ossp-container`` to view the bind mount configuration using the ``--format`` option to display the ``.HostConfig.Binds`` field.
+> * This runs a Docker inspection command on the ``<container_name>`` to view the bind mount configuration using the ``--format`` option to display the ``.HostConfig.Binds`` field.
 >> **Output**
 >> ```bash
+>> docker inspect --format="{{ .HostConfig.Binds }}" ossp-container
+>>
 >> [/Users/weiyiqin/ossp_host_dir:/mnt/ossp_container_dir]
 >> ```
 >> * The output shows that there is a bind mount set up between ``/Users/weiyiqin/ossp_host_dir`` on the host machine and ``/mnt/ossp_container_dir`` inside the container. 
